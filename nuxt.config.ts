@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@ant-design-vue/nuxt',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    'dayjs-nuxt'
   ],
   build: {
     transpile: ['pinia-plugin-persistedstate'],
@@ -25,5 +26,6 @@ export default defineNuxtConfig({
   },
   antd:{
     // Options
+    extractStyle: true
   },
 })

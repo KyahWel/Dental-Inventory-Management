@@ -25,15 +25,15 @@
           <a-input-password v-model:value="formState.password" class="input-field w-full p-3 text-base border border-gray-300 " placeholder="password" />
         </a-form-item>
 
-        <div class="buttons flex justify-center mt-6">
-          <a-button type="primary" class="w-full text-white" @click="redirect">LOGIN</a-button>
-        </div>
+
+        
       </a-form>
+      <a-button type="primary" class="w-full" :style="{'background-color': theme.token.colorPrimary}" @click="redirect">LOGIN</a-button>  
     </div>
 </template>
 
 <script lang="ts" setup>
-
+ const {theme} = useTheme()
   definePageMeta({
       layout: "auth"
   })

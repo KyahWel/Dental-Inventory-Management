@@ -1,9 +1,8 @@
 export default defineAppConfig({
-  title: 'Hello Nuxt',
   theme: {
-    dark: true,
-    colors: {
-      primary: '#ff0000'
+    token:{
+      colorPrimary: '#86bbd5',
+      colorSecondary: '#4d5a6b'
     }
   }
 })
