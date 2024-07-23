@@ -7,8 +7,8 @@ export const useSidebarMenu = () => {
   const routes = [
     {icon:'BarChartOutlined', label:'Dashboard', path:'/app/dashboard'},
     {icon:'DollarOutlined', label:'Prices', path:'/app/prices'},
-    {icon:'StocksOutlined', label:'Stocks', path:'/app/stocks'},
-    {icon:'StocksOutlined', label:'Sales', path:'/app/sales'}
+    {icon:'DropboxOutlined', label:'Stocks', path:'/app/stocks'},
+    {icon:'FundOutlined', label:'Sales', path:'/app/sales'}
   ]
 
 

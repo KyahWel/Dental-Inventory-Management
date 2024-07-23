@@ -1,31 +1,39 @@
 <template>
-  <a-layout-sider v-model:collapsed="props.collapsed" style="background: #fff; padding: 0">
-    <AppSidebarHeader :collapsed="props.collapsed"></AppSidebarHeader>
+  <a-layout-sider v-model:collapsed="collapsed" style="background: #fff; padding: 0">
+    <AppSidebarHeader :collapsed="collapsed"></AppSidebarHeader>
     <a-menu mode="inline" :selected-keys="[activeRoute]">
       <a-menu-item v-for="route in routes" :key="route.path" @click="navigate(route.path)">
         <Icon :type="route.icon"></Icon>
-        <span>{{ route.label }}</span>
+        <span :style="{'font-weight': isActivePage(route.path) ? 'bold' : 'normal'}">{{ route.label }}</span>
       </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>
 
+
 <script lang="ts" setup>
-const router = useRouter()
+  import { computed } from 'vue'
+  import { useRouter } from 'vue-router'
 
-const { isActivePage, routes } = useSidebarMenu()
+  const router = useRouter()
 
-const activeRoute = computed(() => {
-  return routes.find((r:any) => isActivePage(r.path) || {}).path || '/app/dashboard'
-})
+  const { isActivePage, routes } = useSidebarMenu()
 
-const navigate = (path:string) => {
- router.push(path)
-}
+  const activeRoute = computed(() => {
+    const active = routes.find((r: any) => isActivePage(r.path))
+    return active ? active.path : '/app/dashboard'
+  })
 
-let props = defineProps(['collapsed'])
+  const navigate = (path: string) => {
+    router.push(path)
+  }
 
+  // Use defineProps correctly to define `collapsed`
+  const props = defineProps<{ collapsed: boolean }>()
+  const collapsed = computed(() => props.collapsed)
 </script>
 
-<style>
+<style scoped>
+
 </style>
+

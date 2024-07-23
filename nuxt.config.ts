@@ -15,9 +15,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ['pinia-plugin-persistedstate'],
   },
-
+  styleResources: {
+    less: [
+      '@/assets/css/main.less'
+    ]
+  },
  // buildModules: ['@nuxt/typescript-build'], 
-  css: ['~/assets/css/main.css','~/assets/css/tailwind.css'],
+  css: ['~/assets/css/main.css','~/assets/css/tailwind.css', '~/assets/css/main.less'],
   postcss: {
     plugins: {
       tailwindcss: {},

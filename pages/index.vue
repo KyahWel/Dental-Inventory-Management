@@ -1,4 +1,5 @@
 <template>
+  <ClientOnly >
     <div class="form-section bg-white p-12 rounded-lg shadow-md text-center w-full max-w-md">
       <div class="logo mb-6">
         <Logo :width="100" :shape="'square'"></Logo>
@@ -30,6 +31,7 @@
       </a-form>
       <a-button type="primary" class="w-full" :style="{'background-color': theme.token.colorPrimary}" @click="redirect">LOGIN</a-button>  
     </div>
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>

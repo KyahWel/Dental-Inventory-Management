@@ -1,5 +1,5 @@
 <template>
-
+  <a-config-provider :theme="theme">
       <a-layout style="min-height: 100vh;" >
         <AppSidebar :collapsed="collapsedState"/>
         <a-layout class="bg-white-300">
@@ -10,15 +10,15 @@
         </a-layout>
         
       </a-layout>
-
+  </a-config-provider>
   
 
 </template>
 
 <script lang="ts" setup>
-const {theme} = useAppConfig()
 let collapsedState = ref(false)
-
+let {theme} = useAppConfig();
+console.log('theme :>> ', {...theme});
 let collapsed = (val:boolean) => {
   collapsedState.value = val
 }
