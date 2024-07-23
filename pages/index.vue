@@ -1,4 +1,5 @@
 <template>
+  <ClientOnly >
     <div class="form-section bg-white p-12 rounded-lg shadow-md text-center w-full max-w-md">
       <div class="logo mb-6">
         <Logo :width="100" :shape="'square'"></Logo>
@@ -25,15 +26,16 @@
           <a-input-password v-model:value="formState.password" class="input-field w-full p-3 text-base border border-gray-300 " placeholder="password" />
         </a-form-item>
 
-        <div class="buttons flex justify-center mt-6">
-          <a-button type="primary" class="w-full text-white" @click="redirect">LOGIN</a-button>
-        </div>
+
+        
       </a-form>
+      <a-button type="primary" class="w-full" :style="{'background-color': theme.token.colorPrimary}" @click="redirect">LOGIN</a-button>  
     </div>
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-
+ const {theme} = useTheme()
   definePageMeta({
       layout: "auth"
   })
